@@ -4,11 +4,13 @@ import com.example.airplaneandbusonlineticketapi.dto.VoyageDto;
 import com.example.airplaneandbusonlineticketapi.exception.NoAdminException;
 import com.example.airplaneandbusonlineticketapi.exception.NoVoyageException;
 import com.example.airplaneandbusonlineticketapi.model.Voyage;
+import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 import com.example.airplaneandbusonlineticketapi.repository.AdminRepository;
 import com.example.airplaneandbusonlineticketapi.repository.VoyageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -49,5 +51,18 @@ public class VoyageService {
 
     public List<Voyage> getAllVoyages() {
         return voyageRepository.findAll();
+    }
+
+    public List<Voyage> getVoyagesByCountry(String country) {
+        return voyageRepository.findByCountry(country);
+    }
+
+    public List<Voyage> getVoyagesByVehicleType(VehicleType vehicleType) {
+        return voyageRepository.findByType(vehicleType);
+    }
+
+    public List<Voyage> getVoyagesByDate(LocalDateTime date) {
+        return voyageRepository.findByVoyageDate(date);
+
     }
 }
