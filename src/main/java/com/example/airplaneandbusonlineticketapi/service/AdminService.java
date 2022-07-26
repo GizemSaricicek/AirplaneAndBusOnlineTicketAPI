@@ -4,6 +4,7 @@ import com.example.airplaneandbusonlineticketapi.dto.AdminDto;
 import com.example.airplaneandbusonlineticketapi.exception.AdminAlreadyExistsException;
 import com.example.airplaneandbusonlineticketapi.model.Admin;
 import com.example.airplaneandbusonlineticketapi.repository.AdminRepository;
+import com.example.airplaneandbusonlineticketapi.security.Encryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,9 @@ public class AdminService {
 
     @Autowired
     AdminRepository adminRepository;
+
+    @Autowired
+    Encryptor encryptor;
 
     public Admin createAdmin(AdminDto adminDto) {
 
@@ -25,7 +29,7 @@ public class AdminService {
         Admin admin = new Admin();
         admin.setName(adminDto.getName());
         admin.setSurname(adminDto.getSurname());
-        admin.setPassword(adminDto.getPassword());
+        admin.setPassword(encryptor.encryptGivenPassword(adminDto.getPassword()));
         admin.setEmail(adminDto.getEmail());
         adminRepository.save(admin);
         return admin;
