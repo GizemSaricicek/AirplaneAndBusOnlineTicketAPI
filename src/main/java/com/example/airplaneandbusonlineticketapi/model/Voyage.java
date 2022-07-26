@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "voyage")
 public class Voyage {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
     private String country;
