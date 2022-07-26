@@ -1,8 +1,11 @@
 package com.example.airplaneandbusonlineticketapi.service;
 
+import com.example.airplaneandbusonlineticketapi.dto.CorporateUserDto;
 import com.example.airplaneandbusonlineticketapi.dto.IndividualUserDto;
 import com.example.airplaneandbusonlineticketapi.exception.UserAlreadyExistsException;
+import com.example.airplaneandbusonlineticketapi.model.CorporateUser;
 import com.example.airplaneandbusonlineticketapi.model.IndividualUser;
+import com.example.airplaneandbusonlineticketapi.repository.CorporateUserRepository;
 import com.example.airplaneandbusonlineticketapi.repository.IndividualUserRepository;
 import com.example.airplaneandbusonlineticketapi.security.Encryptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,8 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Autowired
     IndividualUserRepository individualUserRepository;
-
+    @Autowired
+    CorporateUserRepository corporateUserRepository;
     @Autowired
     Encryptor encryptor;
 
@@ -34,5 +38,22 @@ public class UserService {
 
         individualUserRepository.save(individualUser);
         return individualUser;
+    }
+
+    public CorporateUser createCorporateUser(CorporateUserDto corporateUserDto) {
+
+        boolean isExists = corporateUserRepository.findByEmail(corporateUserDto.getEmail()).isPresent();
+        if (isExists) {
+            throw new UserAlreadyExistsException();
+        }
+
+        CorporateUser corporateUser = new CorporateUser();
+        corporateUser.setName(corporateUserDto.getName());
+        corporateUser.setEmail(corporateUserDto.getEmail());
+        corporateUser.setPassword(encryptor.encryptGivenPassword(corporateUserDto.getPassword()));
+        corporateUser.setPhoneNumber(corporateUserDto.getPhoneNumber());
+
+        corporateUserRepository.save(corporateUser);
+        return corporateUser;
     }
 }
