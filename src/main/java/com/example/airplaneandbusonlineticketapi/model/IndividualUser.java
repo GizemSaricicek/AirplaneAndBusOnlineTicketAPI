@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "passenger")
-public class Passenger {
+@Table(name = "individual_user")
+public class IndividualUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -29,6 +31,8 @@ public class Passenger {
     @Column
     private Integer age;
     @JsonIgnore
-    @ManyToOne
-    private IndividualUser individualUser;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "individual_user_id", insertable = true)
+    private List<Passenger> passengerList = new ArrayList<>(10);
+
 }
