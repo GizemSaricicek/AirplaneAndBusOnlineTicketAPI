@@ -13,7 +13,4 @@ public class IndividualUserDto {
     private String password;
     private String email;
     private String phoneNumber;
-    @Enumerated(EnumType.STRING)
-    private GenderType gender;
-    private Integer age;
 }

@@ -25,11 +25,6 @@ public class IndividualUser {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
-    @Column
-    @Enumerated(EnumType.STRING)
-    private GenderType gender;
-    @Column
-    private Integer age;
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "individual_user_id", insertable = true)

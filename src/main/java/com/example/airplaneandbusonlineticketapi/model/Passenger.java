@@ -31,4 +31,7 @@ public class Passenger {
     @JsonIgnore
     @ManyToOne
     private IndividualUser individualUser;
+    @JsonIgnore
+    @ManyToOne
+    private CorporateUser corporateUser;
 }

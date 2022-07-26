@@ -25,7 +25,6 @@ public class AdminService {
         if (isExists) {
             throw new AdminAlreadyExistsException();
         }
-
         Admin admin = new Admin();
         admin.setName(adminDto.getName());
         admin.setSurname(adminDto.getSurname());

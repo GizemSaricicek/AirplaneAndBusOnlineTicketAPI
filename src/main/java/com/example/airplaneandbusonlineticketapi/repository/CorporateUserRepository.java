@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface CorporateUserRepository extends JpaRepository<CorporateUser, Integer> {
     Optional<CorporateUser> findByEmail(String email);
+    Optional<CorporateUser> findByEmailAndPassword(String email, String password);
 }
