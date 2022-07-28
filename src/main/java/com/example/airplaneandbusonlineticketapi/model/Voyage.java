@@ -1,5 +1,6 @@
 package com.example.airplaneandbusonlineticketapi.model;
 
+import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
 import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 import lombok.Data;
 
@@ -21,5 +22,8 @@ public class Voyage {
     @Enumerated(EnumType.STRING)
     private VehicleType type;
     @Column
-    private Double money;
+    private Double amount;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private CurrencyType currencyType;
 }

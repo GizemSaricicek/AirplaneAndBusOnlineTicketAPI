@@ -2,7 +2,7 @@ package com.example.airplaneandbusonlineticketapi.service;
 
 import com.example.airplaneandbusonlineticketapi.dto.VoyageDto;
 import com.example.airplaneandbusonlineticketapi.exception.NoAdminException;
-import com.example.airplaneandbusonlineticketapi.exception.NoVoyageException;
+import com.example.airplaneandbusonlineticketapi.exception.VoyagenNotFoundException;
 import com.example.airplaneandbusonlineticketapi.model.Voyage;
 import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 import com.example.airplaneandbusonlineticketapi.repository.AdminRepository;
@@ -31,8 +31,9 @@ public class VoyageService {
         Voyage voyage = new Voyage();
         voyage.setCountry(voyageDto.getCountry());
         voyage.setVoyageDate(voyageDto.getVoyageDate());
-        voyage.setMoney(voyageDto.getMoney());
+        voyage.setAmount(voyageDto.getAmount());
         voyage.setType(voyageDto.getType());
+        voyage.setCurrencyType(voyageDto.getCurrencyType());
 
         return voyageRepository.save(voyage);
     }
@@ -43,7 +44,7 @@ public class VoyageService {
         adminRepository.findById(adminId).orElseThrow(() -> new NoAdminException());
 
         //voyage olup olmaması kontrol ediliyor. Olmayan bir voyage silinemez.
-        voyageRepository.findById(voyageId).orElseThrow(() -> new NoVoyageException());
+        voyageRepository.findById(voyageId).orElseThrow(() -> new VoyagenNotFoundException());
         voyageRepository.deleteById(voyageId);
 
         return deleteMessage;

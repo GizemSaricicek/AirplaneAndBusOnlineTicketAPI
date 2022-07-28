@@ -44,10 +44,10 @@ public class VoyageController {
     }
 
     @GetMapping("/date/{date}")
-    public List<Voyage> getVoyagesByDate(@RequestParam("date")
-                                             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME
-                                             )
-                                             LocalDateTime voyagedate) {
+    public List<Voyage> getVoyagesByDate(/*@RequestParam("date")*/
+            @PathVariable("date")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+            LocalDateTime voyagedate) {
         return voyageService.getVoyagesByDate(voyagedate);
     }
 }

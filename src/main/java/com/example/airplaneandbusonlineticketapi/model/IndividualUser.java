@@ -25,9 +25,9 @@ public class IndividualUser {
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "individual_user_id", insertable = true)
-    private List<Passenger> passengerList = new ArrayList<>(10);
+//    @JsonIgnore
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "individual_user_id", insertable = true)
+//    private List<Passenger> passengerList = new ArrayList<>(10);
 
 }
