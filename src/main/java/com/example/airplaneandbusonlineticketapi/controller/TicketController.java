@@ -1,7 +1,5 @@
 package com.example.airplaneandbusonlineticketapi.controller;
 
-import com.example.airplaneandbusonlineticketapi.dto.ParamDto;
-import com.example.airplaneandbusonlineticketapi.dto.PassengerDto;
 import com.example.airplaneandbusonlineticketapi.dto.TicketDto;
 import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
 import com.example.airplaneandbusonlineticketapi.service.TicketService;
@@ -18,10 +16,8 @@ public class TicketController {
     TicketService ticketService;
 
     @PostMapping("/{userId}/{voyageId}")
-    public TicketDto createTicket(@PathVariable Integer userId, @PathVariable Integer voyageId, @RequestBody ParamDto paramDto){
-        TicketDto ticketDto = paramDto.getTicketDto();
-        PassengerDto passengerDto = paramDto.getPassengerDto();
-        return ticketService.createTicket(userId, voyageId, ticketDto, passengerDto);
+    public TicketDto createTicket(@PathVariable Integer userId, @PathVariable Integer voyageId, @RequestBody TicketDto ticketDto){
+        return ticketService.createTicket(userId, voyageId, ticketDto);
     }
 
     @GetMapping("/{userId}")
