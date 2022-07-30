@@ -1,0 +1,43 @@
+package com.example.airplaneandbusonlineticketapi.dto;
+
+import com.example.airplaneandbusonlineticketapi.model.enums.ConfigurationType;
+
+public class ConfigurationDto {
+    private EmailDto emailDto;
+    private TicketDto ticketDto;
+    private ConfigurationType configurationType;
+
+//    public ConfigurationDto(EmailDto emailDto, ConfigurationType configurationType) {
+//        this.emailDto = emailDto;
+//        this.configurationType = configurationType;
+//    }
+//    public ConfigurationDto(TicketDto ticketDto, ConfigurationType configurationType) {
+//        this.ticketDto = ticketDto;
+//        this.configurationType = configurationType;
+//
+//    }
+
+    public EmailDto getEmailDto() {
+        return emailDto;
+    }
+
+    public void setEmailDto(EmailDto emailDto) {
+        this.emailDto = emailDto;
+    }
+
+    public TicketDto getTicketDto() {
+        return ticketDto;
+    }
+
+    public void setTicketDto(TicketDto ticketDto) {
+        this.ticketDto = ticketDto;
+    }
+
+    public ConfigurationType getConfigurationType() {
+        return configurationType;
+    }
+
+    public void setConfigurationType(ConfigurationType configurationType) {
+        this.configurationType = configurationType;
+    }
+}

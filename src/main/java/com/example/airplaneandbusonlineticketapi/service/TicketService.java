@@ -1,15 +1,14 @@
 package com.example.airplaneandbusonlineticketapi.service;
 
 import com.example.airplaneandbusonlineticketapi.client.PaymentClient;
+import com.example.airplaneandbusonlineticketapi.dto.ConfigurationDto;
 import com.example.airplaneandbusonlineticketapi.dto.TicketDto;
 import com.example.airplaneandbusonlineticketapi.exception.CannotBuyTicketException;
 import com.example.airplaneandbusonlineticketapi.exception.UserNotFoundException;
 import com.example.airplaneandbusonlineticketapi.exception.VoyagenNotFoundException;
 import com.example.airplaneandbusonlineticketapi.model.User;
 import com.example.airplaneandbusonlineticketapi.model.Voyage;
-import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
-import com.example.airplaneandbusonlineticketapi.model.enums.UserType;
-import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
+import com.example.airplaneandbusonlineticketapi.model.enums.*;
 import com.example.airplaneandbusonlineticketapi.repository.UserRepository;
 import com.example.airplaneandbusonlineticketapi.repository.VoyageRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -26,13 +25,17 @@ public class TicketService {
     final Integer MAX_CORPORATE_TICKET = 20;
     final Integer MAX_AIRPLANE_PASSENGER = 189;
     final Integer MAX_BUS_PASSENGER = 45;
+    final Integer MAX_MALE_PASSENGER = 2;
 
     @Autowired
-    PaymentClient paymentClient;
+    private PaymentClient paymentClient;
     @Autowired
-    VoyageRepository voyageRepository;
+    private VoyageRepository voyageRepository;
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private RabbitMqService rabbitMqService;
 
     public TicketDto createTicket(Integer userId, Integer voyageId, TicketDto ticketDto) {
 
@@ -54,6 +57,12 @@ public class TicketService {
         TicketDto ticketDtoTemp = new TicketDto(userId, voyageId, foundVoyage.getCurrencyType(), foundVoyage.getAmount(), ticketDto.getPaymentType(), ticketDto.getName(), ticketDto.getSurname(), ticketDto.getEmail(), ticketDto.getPhoneNumber(), ticketDto.getGender(), ticketDto.getAge());
         TicketDto ticketPayment = paymentClient.createPayment(ticketDtoTemp);
         log.info(ticketDtoTemp.toString());
+
+        ConfigurationDto configurationDto = new ConfigurationDto();
+        configurationDto.setTicketDto(ticketPayment);
+        configurationDto.setConfigurationType(ConfigurationType.MESSAGE);
+
+        rabbitMqService.sendEmail(configurationDto);
         return ticketPayment; // return ticketDtoTemp;
     }
 
@@ -85,5 +94,20 @@ public class TicketService {
 
     public Integer getSoldTicketsNumber() {
         return paymentClient.getAllTickets().size();
+    }
+
+    public List<TicketDto> createTickets(Integer userId, Integer voyageId, List<TicketDto> ticketDtos) {
+
+        User foundUser = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException());
+        Voyage foundVoyage = voyageRepository.findById(voyageId).orElseThrow(() -> new VoyagenNotFoundException());
+
+        Integer malePassenger = Math.toIntExact(ticketDtos.stream().filter(ticketDto -> ticketDto.getGender().equals(GenderType.MALE)).count());
+        if ((foundUser.getUserType().equals(UserType.INDIVIDUAL)) && malePassenger > MAX_MALE_PASSENGER) {
+            throw new CannotBuyTicketException();
+        }
+//        TicketDto ticketDtoTemp = new TicketDto(userId, voyageId, foundVoyage.getCurrencyType(), foundVoyage.getAmount(), ticketDtos.get(i).getPaymentType(), ticketDtos.get(i).getName(), ticketDtos.get(i).getSurname(), ticketDtos.get(i).getEmail(), ticketDtos.get(i).getPhoneNumber(), ticketDtos.get(i).getGender(), ticketDtos.get(i).getAge());
+        List<TicketDto> ticketPayments = paymentClient.createPayments(userId, voyageId, foundVoyage.getAmount(), ticketDtos);
+
+        return ticketPayments;
     }
 }

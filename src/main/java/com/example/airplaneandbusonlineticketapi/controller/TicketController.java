@@ -20,6 +20,10 @@ public class TicketController {
         return ticketService.createTicket(userId, voyageId, ticketDto);
     }
 
+    @PostMapping("/multiple/{userId}/{voyageId}")
+    public List<TicketDto> createTickets(@PathVariable Integer userId, @PathVariable Integer voyageId, @RequestBody List<TicketDto> ticketDtos){
+        return ticketService.createTickets(userId, voyageId, ticketDtos);
+    }
     @GetMapping("/{userId}")
     public List<TicketDto> getTicketsByUserId(@PathVariable Integer userId){
         return ticketService.getTicketsByUserId(userId);

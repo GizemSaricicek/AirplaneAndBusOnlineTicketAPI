@@ -2,7 +2,6 @@ package com.example.airplaneandbusonlineticketapi.client;
 
 import com.example.airplaneandbusonlineticketapi.dto.TicketDto;
 import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
-import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +15,9 @@ import java.util.List;
 public interface PaymentClient {
     @PostMapping(value = "/payments")
     TicketDto createPayment(@RequestBody TicketDto ticketDto);
+
+    @PostMapping(value = "/payments/multiple/{userId}/{voyageId}/{amount}")
+    List<TicketDto> createPayments(@PathVariable Integer userId, @PathVariable Integer voyageId, @PathVariable Double amount, @RequestBody List<TicketDto> ticketDtos);
 
     @GetMapping("/payments/{userId}")
     List<TicketDto> getTicketsByUserId(@PathVariable Integer userId);

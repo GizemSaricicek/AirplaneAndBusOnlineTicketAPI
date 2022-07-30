@@ -1,9 +1,12 @@
 package com.example.airplaneandbusonlineticketapi.service;
 
+import com.example.airplaneandbusonlineticketapi.dto.ConfigurationDto;
+import com.example.airplaneandbusonlineticketapi.dto.EmailDto;
 import com.example.airplaneandbusonlineticketapi.dto.UserDto;
 import com.example.airplaneandbusonlineticketapi.exception.UserAlreadyExistsException;
 import com.example.airplaneandbusonlineticketapi.exception.UserNotFoundException;
 import com.example.airplaneandbusonlineticketapi.model.User;
+import com.example.airplaneandbusonlineticketapi.model.enums.ConfigurationType;
 import com.example.airplaneandbusonlineticketapi.repository.UserRepository;
 import com.example.airplaneandbusonlineticketapi.security.Encryptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-//    @Autowired
+    //    @Autowired
 //    IndividualUserRepository individualUserRepository;
 //    @Autowired
 //    CorporateUserRepository corporateUserRepository;
@@ -84,7 +87,13 @@ public class UserService {
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setUserType(userDto.getUserType());
 
-        rabbitMqService.sendEmail(userDto.getEmail());
+        EmailDto emailDto = new EmailDto(userDto.getEmail());
+
+        ConfigurationDto configurationDto = new ConfigurationDto();
+        configurationDto.setEmailDto(emailDto);
+        configurationDto.setConfigurationType(ConfigurationType.EMAIL);
+
+        rabbitMqService.sendEmail(configurationDto);
         return userRepository.save(user);
     }
 
