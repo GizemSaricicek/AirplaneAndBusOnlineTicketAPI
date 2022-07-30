@@ -1,8 +1,7 @@
 package com.example.airplaneandbusonlineticketapi.service;
 
 import com.example.airplaneandbusonlineticketapi.dto.VoyageDto;
-import com.example.airplaneandbusonlineticketapi.exception.NoAdminException;
-import com.example.airplaneandbusonlineticketapi.exception.VoyagenNotFoundException;
+import com.example.airplaneandbusonlineticketapi.exception.OnlineTicketAppException;
 import com.example.airplaneandbusonlineticketapi.model.Voyage;
 import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 import com.example.airplaneandbusonlineticketapi.repository.AdminRepository;
@@ -26,7 +25,7 @@ public class VoyageService {
     public Voyage createVoyage(Integer adminId, VoyageDto voyageDto) {
 
         //admin olup olmaması kontrol ediliyor. Yetkisiz bir id işlem yapmamalı.
-        adminRepository.findById(adminId).orElseThrow(() -> new NoAdminException());
+        adminRepository.findById(adminId).orElseThrow(() -> new OnlineTicketAppException("Cannot add voyage. There is no admin with this information in the system."));
 
         Voyage voyage = new Voyage();
         voyage.setCountry(voyageDto.getCountry());
@@ -41,10 +40,10 @@ public class VoyageService {
     public String deleteVoyageById(Integer adminId, Integer voyageId) {
 
         //admin olup olmaması kontrol ediliyor. Yetkisiz bir id işlem yapmamalı.
-        adminRepository.findById(adminId).orElseThrow(() -> new NoAdminException());
+        adminRepository.findById(adminId).orElseThrow(() -> new OnlineTicketAppException("Cannot add voyage. There is no admin with this information in the system."));
 
         //voyage olup olmaması kontrol ediliyor. Olmayan bir voyage silinemez.
-        voyageRepository.findById(voyageId).orElseThrow(() -> new VoyagenNotFoundException());
+        voyageRepository.findById(voyageId).orElseThrow(() -> new OnlineTicketAppException("Voyage not found."));
         voyageRepository.deleteById(voyageId);
 
         return deleteMessage;

@@ -3,8 +3,7 @@ package com.example.airplaneandbusonlineticketapi.service;
 import com.example.airplaneandbusonlineticketapi.dto.ConfigurationDto;
 import com.example.airplaneandbusonlineticketapi.dto.EmailDto;
 import com.example.airplaneandbusonlineticketapi.dto.UserDto;
-import com.example.airplaneandbusonlineticketapi.exception.UserAlreadyExistsException;
-import com.example.airplaneandbusonlineticketapi.exception.UserNotFoundException;
+import com.example.airplaneandbusonlineticketapi.exception.OnlineTicketAppException;
 import com.example.airplaneandbusonlineticketapi.model.User;
 import com.example.airplaneandbusonlineticketapi.model.enums.ConfigurationType;
 import com.example.airplaneandbusonlineticketapi.repository.UserRepository;
@@ -77,7 +76,7 @@ public class UserService {
     public User createUser(UserDto userDto) {
         boolean isExists = userRepository.findByEmail(userDto.getEmail()).isPresent();
         if (isExists) {
-            throw new UserAlreadyExistsException();
+            throw new OnlineTicketAppException("User already exists.");
         }
 
         User user = new User();
@@ -99,7 +98,7 @@ public class UserService {
 
     public User loginUser(UserDto userDto) {
         String inputUserPassword = encryptor.encryptGivenPassword(userDto.getPassword());
-        User foundUser = userRepository.findByEmailAndPassword(userDto.getEmail(), inputUserPassword).orElseThrow(() -> new UserNotFoundException());
+        User foundUser = userRepository.findByEmailAndPassword(userDto.getEmail(), inputUserPassword).orElseThrow(() -> new OnlineTicketAppException("User not found."));
         return foundUser;
     }
 }
