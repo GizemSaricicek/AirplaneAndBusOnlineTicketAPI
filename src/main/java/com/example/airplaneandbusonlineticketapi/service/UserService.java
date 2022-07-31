@@ -22,10 +22,10 @@ public class UserService {
     private RabbitMqService rabbitMqService;
 
     public User createUser(UserDto userDto) {
-//        boolean isExists = userRepository.findByEmail(userDto.getEmail()).isPresent();
-//        if (isExists) {
-//            throw new OnlineTicketAppException("User already exists.");
-//        }
+        boolean isExists = userRepository.findByEmail(userDto.getEmail()).isPresent();
+        if (isExists) {
+            throw new OnlineTicketAppException("User already exists.");
+        }
 
         User user = new User();
         user.setFullName(userDto.getFullName());
