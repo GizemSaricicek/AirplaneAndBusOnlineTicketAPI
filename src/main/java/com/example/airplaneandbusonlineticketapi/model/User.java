@@ -29,4 +29,17 @@ public class User {
 //    @OneToMany(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "user_id", insertable = true)
 //    private List<Passenger> passengerList = new ArrayList<>(10);
+
+    public User(Integer id, String fullName, String password, UserType userType, String email, String phoneNumber) {
+        this.id = id;
+        this.fullName = fullName;
+        this.password = password;
+        this.userType = userType;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public User() {
+
+    }
 }

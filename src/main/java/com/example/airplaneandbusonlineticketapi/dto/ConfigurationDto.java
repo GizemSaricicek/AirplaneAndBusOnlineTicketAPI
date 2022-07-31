@@ -1,8 +1,9 @@
 package com.example.airplaneandbusonlineticketapi.dto;
 
 import com.example.airplaneandbusonlineticketapi.model.enums.ConfigurationType;
+import org.springframework.amqp.core.Message;
 
-public class ConfigurationDto {
+public class ConfigurationDto{
     private EmailDto emailDto;
     private TicketDto ticketDto;
     private ConfigurationType configurationType;
