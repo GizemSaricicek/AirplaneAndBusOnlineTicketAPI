@@ -41,4 +41,11 @@ public class ConfigurationDto{
     public void setConfigurationType(ConfigurationType configurationType) {
         this.configurationType = configurationType;
     }
+
+    public ConfigurationDto(EmailDto emailDto) {
+        this.emailDto = emailDto;
+    }
+
+    public ConfigurationDto() {
+    }
 }

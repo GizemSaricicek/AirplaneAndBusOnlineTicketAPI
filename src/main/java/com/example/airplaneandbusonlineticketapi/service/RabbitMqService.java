@@ -14,8 +14,9 @@ public class RabbitMqService {
     @Autowired
     private RabbitMqConfig rabbitMqConfig;
 
-    public void sendEmail(ConfigurationDto configurationDto) {
+    public String sendEmail(ConfigurationDto configurationDto) {
         rabbitTemplate.convertAndSend(rabbitMqConfig.getQueueName(), configurationDto);
         // email değeri json tipine convert edilip kuyruğa yazılıyor.
+        return configurationDto.getEmailDto().getEmail();
     }
 }

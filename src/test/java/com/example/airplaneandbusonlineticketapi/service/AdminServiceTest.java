@@ -50,8 +50,6 @@ public class AdminServiceTest {
         Admin responseAdmin = adminService.createAdmin(adminDto);
 
         //then
-
-        //userRepository herhangi bir obje ile çağrılabilir.
         //save metodu çağrılabilmiş mi verify ediliyor.
         verify(adminRepository, times(1)).save(Mockito.any());
 

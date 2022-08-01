@@ -37,7 +37,7 @@ public class VoyageService {
         return voyageRepository.save(voyage);
     }
 
-    public String deleteVoyageById(Integer adminId, Integer voyageId) {
+    public String deleteVoyageById(Integer adminId, Integer voyageId) { //STATUS DEĞİŞİKLİĞİ YAP DELETE ETME
 
         //admin olup olmaması kontrol ediliyor. Yetkisiz bir id işlem yapmamalı.
         adminRepository.findById(adminId).orElseThrow(() -> new OnlineTicketAppException("Cannot add voyage. There is no admin with this information in the system."));
