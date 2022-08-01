@@ -53,6 +53,7 @@ public class TicketService {
         if ((foundUser.getUserType().equals(UserType.INDIVIDUAL) && ticketsNumber.size() > MAX_INDIVIDUAL_TICKET - 1) || (foundUser.getUserType().equals(UserType.CORPORATE) && ticketsNumber.size() > MAX_CORPORATE_TICKET - 1)) {
             throw new OnlineTicketAppException("Cannot buy ticket. Individual users can buy 5 ticket for a voyage and Corporate users can buy 20 tickets for a voyage ");
         }
+
         TicketDto ticketDtoTemp = new TicketDto(userId, voyageId, foundVoyage.getCurrencyType(), foundVoyage.getAmount(), ticketDto.getPaymentType(), ticketDto.getName(), ticketDto.getSurname(), ticketDto.getEmail(), ticketDto.getPhoneNumber(), ticketDto.getGender(), ticketDto.getAge());
         TicketDto ticketPayment = paymentClient.createPayment(ticketDtoTemp);
         log.info(ticketDtoTemp.toString());

@@ -39,4 +39,11 @@ public class TicketDto {
         this.gender = gender;
         this.age = age;
     }
+
+    public TicketDto(int userId, int voyageId, CurrencyType tl, double amount) {
+        this.userId = userId;
+        this.voyageId = voyageId;
+        this.currencyType = currencyType;
+        this.amount = amount;
+    }
 }
