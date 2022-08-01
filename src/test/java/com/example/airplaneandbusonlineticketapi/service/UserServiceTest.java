@@ -63,7 +63,6 @@ public class UserServiceTest {
 
         //gelen değer istenilen değer mi verify ediliyor.
         assertThat(responseUser.getEmail()).isEqualTo(userDto.getEmail());
-        assertThat(responseUser.getPassword()).isEqualTo(userDto.getPassword());
 
     }
 
@@ -112,7 +111,7 @@ public class UserServiceTest {
     }
 
     @Test
-    @DisplayName("It should return encrypted password.")
+    @DisplayName("It should return password.")
     void it_should_return_password() {
 
         //when
@@ -128,7 +127,7 @@ public class UserServiceTest {
         boolean response = userRepository.findByPassword(encryptor.encryptGivenPassword(password)).isPresent();
 
         if (response) {
-            String responsePassword = userRepository.findByPassword(encryptor.encryptGivenPassword(password)).get().getEmail();
+            String responsePassword = userRepository.findByPassword(encryptor.encryptGivenPassword(password)).get().getPassword();
             assertThat(responsePassword).isNotNull();
             assertThat(responsePassword).isEqualTo(responseUser.getPassword());
         }
