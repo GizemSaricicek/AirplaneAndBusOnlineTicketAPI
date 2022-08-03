@@ -7,7 +7,7 @@
 
 ### Sistem Şeması
 
-![logo final project system](https://user-images.githubusercontent.com/97917750/182662204-e4c1bda3-6fab-43be-a5f0-c9b6f70f1513.png)
+![image](https://user-images.githubusercontent.com/97917750/182662896-158890cb-dbdd-4910-bd72-076e5ca6b977.png)
 
 
 ### Sistem Modelleri ve İlişkileri
