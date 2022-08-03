@@ -34,6 +34,20 @@ MAX_MALE_PASSENGER = 2 -> Bir bireysel kullanıcının tek bir siparişte bilet 
     
 ### Projede Kullanılan Uygulamaların Port Değerleri ve Veritabanı - RabbitMQ Bağlantı Bilgileri
 
+Admin Service Port:  
+Ticket Payment Port:  
+Configuration Service Port:  
+Airplane And Bus Online Ticket API port: 4040  
+  
+  RabbitMq port:  
+  RabbitMq user: guest  
+  RabbitMq password: guest  
+  
+  Postgresql port:  
+  Postgresql user: postgres  
+  Postgresql password: postgrespw  
+
+
 ### Postman Kullanımı İçin Bilgiler
 
 
