@@ -7,6 +7,9 @@
 
 ### Sistem Şeması
 
+![logo final project system](https://user-images.githubusercontent.com/97917750/182662204-e4c1bda3-6fab-43be-a5f0-c9b6f70f1513.png)
+
+
 ### Sistem Modelleri ve İlişkileri
 
 ### Projede kullanılan Enum Değerler ve Sabit Değerler
