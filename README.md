@@ -1,5 +1,5 @@
 # AirplaneAndBusOnlineTicketAPI
-### Patika.dev - Logo Bootcamp Final Project
+## Patika.dev - Logo Bootcamp Final Project
 
 ### Proje Kapsamı ve Açıklaması
 
