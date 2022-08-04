@@ -9,13 +9,13 @@ API’ler yazılmıştır.
 Ödeme, admin ve configuration için ana sistemden ayrı servisler bulunmaktadır. Asenkron iletişimi simgelemek adına RabbitMq'dan yararlanılmıştır. Senkron iletişim için ise Feign Kütüphanesi kullanılmıştır.
 
 ### Sistem Kabulleri
-• Kullanıcılar bireysel ve kurumsal olabilir.
-• Uçak yolcu kapasitesi: 189
-• Otobüs yolcu kapasitesi: 45
-• Ödeme şekli sadece Kredi kartı ve Havale / EFT olabilir.
-• Mesaj ve Mail gönderim işlemleri Asenkron olmalıdır.
-• Ödeme Servisi işlemleri Senkron olmalıdır. 
-
+• Kullanıcılar bireysel ve kurumsal olabilir.  
+• Uçak yolcu kapasitesi: 189  
+• Otobüs yolcu kapasitesi: 45  
+• Ödeme şekli sadece Kredi kartı ve Havale / EFT olabilir.  
+• Mesaj ve Mail gönderim işlemleri Asenkron olmalıdır.  
+• Ödeme Servisi işlemleri Senkron olmalıdır.  
+  
 ### Sistem Şeması
 
 ![image](https://user-images.githubusercontent.com/97917750/182848997-847e306a-d68d-4a15-a13f-1198d0a34d9b.png)
