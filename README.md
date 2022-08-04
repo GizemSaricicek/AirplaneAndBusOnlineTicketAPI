@@ -8,6 +8,20 @@ API’ler yazılmıştır.
 • Proje SpringBoot ile geliştirilmiştir. Veri tabanı olarak Postgresql kullanılmıştır. Servisler için unit test yazılmıştır.
 Ödeme, admin ve configuration için ana sistemden ayrı servisler bulunmaktadır. Asenkron iletişimi simgelemek adına RabbitMq'dan yararlanılmıştır. Senkron iletişim için ise Feign Kütüphanesi kullanılmıştır.
 
+### Sistem Gereksinimleri
+• Kullanıcılar sisteme kayıt ve login olabilmelidir.  
+• Kullanıcı kayıt işleminden sonra mail gönderilmelidir.  
+• Kullanıcı şifresi bir hashing algoritmasıyla database kaydedilmelidir.  
+• Admin kullanıcı yeni sefer ekleyebilir, iptal edebilir, toplam bilet satışını, bu satıştan elde edilen toplam ücreti görebilir.  
+• Kullanıcılar şehir bilgisi, taşıt türü(uçak & otobüs) veya tarih bilgisi ile tüm seferleri arayabilmelidir.  
+• Bireysel kullanıcı aynı sefer için en fazla 5 bilet alabilir.  
+• Kurumsal kullanıcı aynı sefer için en fazla 20 bilet alabilir.  
+• Bireysel kullanıcı tek bir siparişte en fazla 2 erkek yolcu için bilet alabilir.  
+• Satın alma işlemi başarılı ise işlem tamamlanmalı ve asenkron olarak bilet detayları kullanıcının telefona numarasına mesaj gönderilmelidir.  
+• Mesaj ve mail gönderme işlemleri için sadece Database kayıt etme işlemi yapması yeterlidir. Fakat bu işlemler tek bir Servis(uygulama)   
+üzerinden ve polimorfik davranış ile yapılmalıdır.  
+• Kullancılar aldığı biletleri görebilmelidir.
+  
 ### Sistem Kabulleri
 • Kullanıcılar bireysel ve kurumsal olabilir.  
 • Uçak yolcu kapasitesi: 189  
@@ -35,8 +49,6 @@ Enum:
 • UserType: INDIVIDUAL, CORPORATE -> Kullanıcı tipinin bireysel mi kurumsal mı olduğunu belirtmek için.  
 • VehicleType: AIRPLANE, BUS -> Seyehatin hangi tür araç ile yapılacağını belirtmek için.  
   
-    
-    
 Sabitler:  
 • MAX_INDIVIDUAL_TICKET = 5 -> Bir bireysel kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
 • MAX_CORPORATE_TICKET = 20 -> Bir kurumsal kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
