@@ -4,7 +4,7 @@
 ### Proje Kapsamı ve Açıklaması
 • Online uçak ve otobüs bilet satış uygulaması için gerekli API’ler yazılmıştır. 
 Buna ek olarak admin üzerinden yolculuk seferlerinin sisteme girilmesi ve silinmesi için de gerekli 
-API’ler yazılmalıdır.  
+API’ler yazılmıştır.  
 • Proje SpringBoot ile geliştirilmiştir. Veri tabanı olarak Postgresql kullanılmıştır. Servisler için unit test yazılmıştır.
 Ödeme, admin ve configuration için ana sistemden ayrı servisler bulunmaktadır. Asenkron iletişimi simgelemek adına RabbitMq'dan yararlanılmıştır. Senkron iletişim için ise Feign Kütüphanesi kullanılmıştır.
 
