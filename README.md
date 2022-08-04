@@ -10,6 +10,7 @@
 ![image](https://user-images.githubusercontent.com/97917750/182848997-847e306a-d68d-4a15-a13f-1198d0a34d9b.png)
 
 ### Sistem Modelleri ve İlişkileri
+Not: Voyage modelinde status sütunu sistemden silinip silinmediğini göstermektedir. Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.  
 
 ### Projede kullanılan Enum Değerler ve Sabit Değerler
 
