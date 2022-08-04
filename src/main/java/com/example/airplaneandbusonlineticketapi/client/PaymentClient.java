@@ -13,17 +13,17 @@ import java.util.List;
 
 @FeignClient(url = "${payment.url}", value = "airplane-bus-ticket-payment-service")
 public interface PaymentClient {
-    @PostMapping(value = "/payments")
-    TicketDto createPayment(@RequestBody TicketDto ticketDto);
 
-    @PostMapping(value = "/payments/multiple/{userId}/{voyageId}/{amount}")
-    List<TicketDto> createPayments(@PathVariable Integer userId, @PathVariable Integer voyageId, @PathVariable Double amount, @RequestBody List<TicketDto> ticketDtos);
+    @PostMapping(value = "/payments/{userId}/{voyageId}/{currencyType}/{amount}")
+    List<TicketDto> createPayments(@PathVariable Integer userId, @PathVariable Integer voyageId, @PathVariable CurrencyType currencyType, @PathVariable Double amount, @RequestBody List<TicketDto> ticketDtos);
 
     @GetMapping("/payments/{userId}")
     List<TicketDto> getTicketsByUserId(@PathVariable Integer userId);
 
     @GetMapping("/payments")
     List<TicketDto> getAllTickets();
+    @GetMapping("/payments/tickets/totalAmount")
+    Double getTicketsTotalAmount();
     @GetMapping("/payments/currencyType/{currencyType}")
     List<TicketDto> getTicketsByCurrencyType(@PathVariable CurrencyType currencyType);
     @GetMapping("payments/tickets/{userId}/{voyageId}")

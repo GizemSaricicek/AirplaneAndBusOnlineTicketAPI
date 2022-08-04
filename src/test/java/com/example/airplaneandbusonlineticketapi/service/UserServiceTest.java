@@ -59,7 +59,7 @@ public class UserServiceTest {
         //userRepository herhangi bir obje ile çağrılabilir.
         //save metodu çağrılabilmiş mi verify ediliyor.
         verify(userRepository, times(1)).save(Mockito.any());
-        verify(rabbitMqService, times(1)).sendEmail(Mockito.any(ConfigurationDto.class));
+        verify(rabbitMqService, times(1)).sendConfiguration(Mockito.any(ConfigurationDto.class));
 
         //gelen değer istenilen değer mi verify ediliyor.
         assertThat(responseUser.getEmail()).isEqualTo(userDto.getEmail());

@@ -6,7 +6,10 @@ import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 import com.example.airplaneandbusonlineticketapi.service.VoyageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,19 +21,9 @@ public class VoyageController {
     @Autowired
     VoyageService voyageService;
 
-    @PostMapping("/{adminId}/create")
-    public Voyage createVoyage(@PathVariable Integer adminId, @RequestBody VoyageDto voyageDto) {
-        return voyageService.createVoyage(adminId, voyageDto);
-    }
-
-    @DeleteMapping("/{adminId}/delete/{voyageId}")
-    public String deleteVoyage(@PathVariable Integer adminId, @PathVariable Integer voyageId) {
-        return voyageService.deleteVoyageById(adminId, voyageId);
-    }
-
-    @GetMapping
+    @GetMapping()
     public List<Voyage> getAllVoyages() {
-        return voyageService.getAllVoyages();
+        return voyageService.getCurrentVoyages();
     }
 
     @GetMapping("/country/{country}")
@@ -44,10 +37,10 @@ public class VoyageController {
     }
 
     @GetMapping("/date/{date}")
-    public List<Voyage> getVoyagesByDate(/*@RequestParam("date")*/
+    public List<Voyage> getVoyagesByDate(
             @PathVariable("date")
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-            LocalDateTime voyagedate) {
-        return voyageService.getVoyagesByDate(voyagedate);
+            LocalDateTime voyageDate) {
+        return voyageService.getVoyagesByDate(voyageDate);
     }
 }

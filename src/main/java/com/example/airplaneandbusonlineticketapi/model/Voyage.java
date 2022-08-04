@@ -23,6 +23,7 @@ public class Voyage {
     private VehicleType type;
     @Column
     private Double amount;
+    private boolean status;
     @Column
     @Enumerated(EnumType.STRING)
     private CurrencyType currencyType;
@@ -44,6 +45,14 @@ public class Voyage {
     }
 
     public Voyage() {
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public Integer getId() {

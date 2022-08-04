@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
-    Encryptor encryptor;
+    private Encryptor encryptor;
     @Autowired
     private RabbitMqService rabbitMqService;
 
@@ -40,7 +40,7 @@ public class UserService {
         configurationDto.setEmailDto(emailDto);
         configurationDto.setConfigurationType(ConfigurationType.EMAIL);
 
-        rabbitMqService.sendEmail(configurationDto);
+        rabbitMqService.sendConfiguration(configurationDto);
         return userRepository.save(user);
     }
 

@@ -8,7 +8,9 @@ import javax.persistence.Enumerated;
 import java.time.LocalDateTime;
 
 public class VoyageDto {
+    private Integer id;
     private String country;
+    private String departure;
     private LocalDateTime voyageDate;
     private VehicleType type;
     private Double amount;
@@ -23,6 +25,22 @@ public class VoyageDto {
         this.voyageDate = voyageDate;
         this.type = type;
         this.amount = amount;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
     }
 
     public String getCountry() {

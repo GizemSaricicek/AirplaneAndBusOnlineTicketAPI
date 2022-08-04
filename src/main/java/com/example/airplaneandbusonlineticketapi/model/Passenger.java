@@ -1,32 +1,46 @@
-package com.example.airplaneandbusonlineticketapi.dto;
+package com.example.airplaneandbusonlineticketapi.model;
 
 import com.example.airplaneandbusonlineticketapi.model.enums.GenderType;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class PassengerDto {
+@Entity
+@Table(name = "passenger")
+public class Passenger {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private String email;
+    @Column(name = "phone_number")
     private String phoneNumber;
+    @Column
     @Enumerated(EnumType.STRING)
     private GenderType gender;
+    @Column
     private Integer age;
+    @Column(name = "voyage_id")
     private Integer voyageId;
 
-    public PassengerDto() {
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "passenger_id", insertable = true)
+//    private List<User> users = new ArrayList<>();
+
+    @ManyToOne
+    private User user;
+
+    public Integer getId() {
+        return id;
     }
 
-    public PassengerDto(String name, String surname, String email, String phoneNumber, GenderType gender, Integer age, Integer voyageId) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
-        this.age = age;
-        this.voyageId = voyageId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -77,11 +91,38 @@ public class PassengerDto {
         this.age = age;
     }
 
+//    public Integer getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(Integer userId) {
+//        this.userId = userId;
+//    }
+//
+//    public List<Ticket> getTickets() {
+//        return tickets;
+//    }
+//
+//    public void setTickets(List<Ticket> tickets) {
+//        this.tickets = tickets;
+//    }
+
     public Integer getVoyageId() {
         return voyageId;
     }
 
     public void setVoyageId(Integer voyageId) {
         this.voyageId = voyageId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Passenger() {
     }
 }

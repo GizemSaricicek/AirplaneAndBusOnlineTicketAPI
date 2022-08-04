@@ -1,7 +1,7 @@
 package com.example.airplaneandbusonlineticketapi.controller;
 
 import com.example.airplaneandbusonlineticketapi.dto.TicketDto;
-import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
+import com.example.airplaneandbusonlineticketapi.model.Passenger;
 import com.example.airplaneandbusonlineticketapi.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +16,6 @@ public class TicketController {
     TicketService ticketService;
 
     @PostMapping("/{userId}/{voyageId}")
-    public TicketDto createTicket(@PathVariable Integer userId, @PathVariable Integer voyageId, @RequestBody TicketDto ticketDto){
-        return ticketService.createTicket(userId, voyageId, ticketDto);
-    }
-
-    @PostMapping("/multiple/{userId}/{voyageId}")
     public List<TicketDto> createTickets(@PathVariable Integer userId, @PathVariable Integer voyageId, @RequestBody List<TicketDto> ticketDtos){
         return ticketService.createTickets(userId, voyageId, ticketDtos);
     }
@@ -34,18 +29,4 @@ public class TicketController {
         return ticketService.getAllTickets();
     }
 
-    @GetMapping("/totalAmount")
-    public Double getTicketsTotalAmount(){
-        return ticketService.getTicketsTotalAmount();
-    }
-
-    @GetMapping("/soldTicket")
-    public Integer getSoldTicketsNumber(){
-        return ticketService.getSoldTicketsNumber();
-    }
-
-    @GetMapping("/totalAmount/{currencyType}")
-    public Double getTicketsTotalAmount(@PathVariable CurrencyType currencyType){
-        return ticketService.getTicketsTotalAmountByCurrencyType(currencyType);
-    }
 }

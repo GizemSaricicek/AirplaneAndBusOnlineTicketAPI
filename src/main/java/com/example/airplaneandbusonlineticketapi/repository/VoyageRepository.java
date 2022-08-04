@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 public interface VoyageRepository extends JpaRepository<Voyage, Integer> {
     List<Voyage> findByCountry(String country);
@@ -14,4 +13,6 @@ public interface VoyageRepository extends JpaRepository<Voyage, Integer> {
     List<Voyage> findByType(VehicleType vehicleType);
 
     List<Voyage> findByVoyageDate(LocalDateTime date);
+
+    List<Voyage> findByStatus(boolean b);
 }

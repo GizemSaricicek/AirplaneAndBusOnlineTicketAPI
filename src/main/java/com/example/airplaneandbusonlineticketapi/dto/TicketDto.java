@@ -9,12 +9,9 @@ import lombok.Data;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-@Data
 public class TicketDto {
     private Integer userId;
     private Integer voyageId;
-    @Enumerated(EnumType.STRING)
-    private CurrencyType currencyType;
     private Double amount;
     @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
@@ -26,10 +23,9 @@ public class TicketDto {
     private GenderType gender;
     private Integer age;
 
-    public TicketDto(Integer userId, Integer voyageId, CurrencyType currencyType, Double amount, PaymentType paymentType, String name, String surname, String email, String phoneNumber, GenderType gender, Integer age) {
+    public TicketDto(Integer userId, Integer voyageId, Double amount, PaymentType paymentType, String name, String surname, String email, String phoneNumber, GenderType gender, Integer age) {
         this.userId = userId;
         this.voyageId = voyageId;
-        this.currencyType = currencyType;
         this.amount = amount;
         this.paymentType = paymentType;
         this.name = name;
@@ -40,10 +36,92 @@ public class TicketDto {
         this.age = age;
     }
 
-    public TicketDto(int userId, int voyageId, CurrencyType tl, double amount) {
+    public TicketDto(int userId, int voyageId, double amount) {
         this.userId = userId;
         this.voyageId = voyageId;
-        this.currencyType = currencyType;
         this.amount = amount;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getVoyageId() {
+        return voyageId;
+    }
+
+    public void setVoyageId(Integer voyageId) {
+        this.voyageId = voyageId;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public GenderType getGender() {
+        return gender;
+    }
+
+    public void setGender(GenderType gender) {
+        this.gender = gender;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public TicketDto() {
     }
 }
