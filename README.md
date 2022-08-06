@@ -68,7 +68,8 @@ Sabitler:
   • RabbitMq password: guest  
   
   • Postgresql user: postgres  
-  • Postgresql password: postgrespw    
+  • Postgresql password: postgrespw  
+    
   • Admin Service'in kullandığı DB: online_ticket_service  
   • Ticket Payment Service'in kullandığı DB: ticket_payment  
   • Configuration Service'in kullandığı DB: ticket_config  
