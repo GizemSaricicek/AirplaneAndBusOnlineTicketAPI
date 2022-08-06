@@ -72,10 +72,10 @@ Sabitler:
   • Postgresql user: postgres  
   • Postgresql password: postgrespw  
     
-    • Admin Service'in kullandığı DB: online_ticket_service  
-    • Ticket Payment Service'in kullandığı DB: ticket_payment  
-    • Configuration Service'in kullandığı DB: ticket_config  
-    • Airplane And Bus Online Ticket API'ın kullandığı DB: online_ticket_service  
+   • Admin Service'in kullandığı DB: online_ticket_service  
+   • Ticket Payment Service'in kullandığı DB: ticket_payment  
+   • Configuration Service'in kullandığı DB: ticket_config  
+   • Airplane And Bus Online Ticket API'ın kullandığı DB: online_ticket_service  
 
 ### Postman Kullanımı İçin Bilgiler
 
