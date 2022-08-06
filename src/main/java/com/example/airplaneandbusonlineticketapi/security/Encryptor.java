@@ -1,17 +1,15 @@
 package com.example.airplaneandbusonlineticketapi.security;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 
 @Configuration
 public class Encryptor {
 
-    public String encryptGivenPassword (String password) {
+    public String encryptGivenPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDiggest = md.digest(password.getBytes());

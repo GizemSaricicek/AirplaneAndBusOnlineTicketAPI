@@ -92,17 +92,16 @@ public class UserServiceTest {
 
         //when
         String email = "test@gmail.com";
-        String password = "testPW";
+        String password = encryptor.encryptGivenPassword("testPW");
 
         //given
         User responseUser = new User();
         UserDto userDto = prepareUser();
         responseUser.setEmail(userDto.getEmail());
-        responseUser.setPassword(userDto.getPassword());
         Mockito.when(userRepository.findByEmailAndPassword(email, password)).thenReturn(Optional.of(responseUser));
 
         //then
-        Optional<User> response = userRepository.findByEmailAndPassword(email, password);
+        Optional<User> response = Optional.ofNullable(userService.loginUser(userDto));
         verify(userRepository, times(1)).findByEmailAndPassword(email, password);
         assertThat(response).isNotNull();
         assertThat(response.get().getEmail()).isEqualTo(responseUser.getEmail());

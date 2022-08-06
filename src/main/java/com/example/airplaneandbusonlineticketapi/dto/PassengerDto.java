@@ -1,5 +1,6 @@
 package com.example.airplaneandbusonlineticketapi.dto;
 
+import com.example.airplaneandbusonlineticketapi.model.User;
 import com.example.airplaneandbusonlineticketapi.model.enums.GenderType;
 
 import javax.persistence.Column;
@@ -15,6 +16,8 @@ public class PassengerDto {
     private GenderType gender;
     private Integer age;
     private Integer voyageId;
+
+    private User user;
 
     public PassengerDto() {
     }
@@ -83,5 +86,13 @@ public class PassengerDto {
 
     public void setVoyageId(Integer voyageId) {
         this.voyageId = voyageId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

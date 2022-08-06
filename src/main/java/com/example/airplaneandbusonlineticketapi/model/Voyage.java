@@ -16,90 +16,99 @@ public class Voyage {
     private Integer id;
     @Column
     private String country;
+    @Column
+    String departure;
     @Column(name = "voyage_date")
     private LocalDateTime voyageDate;
-    @Column
-    @Enumerated(EnumType.STRING)
-    private VehicleType type;
     @Column
     private Double amount;
     private boolean status;
     @Column
     @Enumerated(EnumType.STRING)
     private CurrencyType currencyType;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private VehicleType type;
 
-    public Voyage(String country, LocalDateTime voyageDate, VehicleType type, Double amount) {
-        this.country = country;
-        this.voyageDate = voyageDate;
-        this.type = type;
-        this.amount = amount;
-    }
-
-    public Voyage(Integer id, String country, LocalDateTime voyageDate, VehicleType type, Double amount, CurrencyType currencyType) {
-        this.id = id;
-        this.country = country;
-        this.voyageDate = voyageDate;
-        this.type = type;
-        this.amount = amount;
-        this.currencyType = currencyType;
-    }
 
     public Voyage() {
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getCountry() {
         return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public LocalDateTime getVoyageDate() {
-        return voyageDate;
-    }
-
-    public void setVoyageDate(LocalDateTime voyageDate) {
-        this.voyageDate = voyageDate;
     }
 
     public VehicleType getType() {
         return type;
     }
 
-    public void setType(VehicleType type) {
-        this.type = type;
-    }
-
     public Double getAmount() {
         return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
     }
 
     public CurrencyType getCurrencyType() {
         return currencyType;
     }
 
-    public void setCurrencyType(CurrencyType currencyType) {
+    public Voyage(Integer id, String country, String departure, LocalDateTime voyageDate, Double amount, boolean status, CurrencyType currencyType, VehicleType type) {
+        this.id = id;
+        this.country = country;
+        this.departure = departure;
+        this.voyageDate = voyageDate;
+        this.amount = amount;
+        this.status = status;
         this.currencyType = currencyType;
+        this.type = type;
     }
+
+    //    public void setCurrencyType(CurrencyType currencyType) {
+//        this.currencyType = currencyType;
+//    }
+    public Voyage(String country, LocalDateTime voyageDate, VehicleType type, Double amount) {
+        this.country = country;
+        this.voyageDate = voyageDate;
+        this.type = type;
+        this.amount = amount;
+    }
+//    public boolean isStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(boolean status) {
+//        this.status = status;
+//    }
+//    public void setAmount(Double amount) {
+//        this.amount = amount;
+//    }
+//    public void setType(VehicleType type) {
+//        this.type = type;
+//    }
+//
+//    public Voyage(Integer id, String country, LocalDateTime voyageDate, VehicleType type, Double amount, CurrencyType currencyType) {
+//        this.id = id;
+//        this.country = country;
+//        this.voyageDate = voyageDate;
+//        this.type = type;
+//        this.amount = amount;
+//        this.currencyType = currencyType;
+//    }
+//    public void setCountry(String country) {
+//        this.country = country;
+//    }
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public LocalDateTime getVoyageDate() {
+//        return voyageDate;
+//    }
+//
+//    public void setVoyageDate(LocalDateTime voyageDate) {
+//        this.voyageDate = voyageDate;
+//    }
+
 }

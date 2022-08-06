@@ -3,8 +3,7 @@ package com.example.airplaneandbusonlineticketapi.dto;
 import com.example.airplaneandbusonlineticketapi.model.enums.GenderType;
 import com.example.airplaneandbusonlineticketapi.model.enums.PaymentType;
 import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
-
-import lombok.Data;
+import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,6 +21,12 @@ public class TicketDto {
     @Enumerated(EnumType.STRING)
     private GenderType gender;
     private Integer age;
+    @Enumerated(EnumType.STRING)
+    private CurrencyType currencyType;
+//    private String country;
+//    private String departure;
+    @Enumerated(EnumType.STRING)
+    private VehicleType vehicleType;
 
     public TicketDto(Integer userId, Integer voyageId, Double amount, PaymentType paymentType, String name, String surname, String email, String phoneNumber, GenderType gender, Integer age) {
         this.userId = userId;
@@ -36,14 +41,32 @@ public class TicketDto {
         this.age = age;
     }
 
-    public TicketDto(int userId, int voyageId, double amount) {
+    public TicketDto(int userId, int voyageId, CurrencyType currencyType, double amount, VehicleType vehicleType) {
         this.userId = userId;
         this.voyageId = voyageId;
         this.amount = amount;
+        this.currencyType = currencyType;
+        this.vehicleType = vehicleType;
+    }
+
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public Integer getUserId() {
         return userId;
+    }
+
+    public CurrencyType getCurrencyType() {
+        return currencyType;
+    }
+
+    public void setCurrencyType(CurrencyType currencyType) {
+        this.currencyType = currencyType;
     }
 
     public void setUserId(Integer userId) {
@@ -121,6 +144,22 @@ public class TicketDto {
     public void setAge(Integer age) {
         this.age = age;
     }
+
+//    public String getCountry() {
+//        return country;
+//    }
+//
+//    public void setCountry(String country) {
+//        this.country = country;
+//    }
+//
+//    public String getDeparture() {
+//        return departure;
+//    }
+//
+//    public void setDeparture(String departure) {
+//        this.departure = departure;
+//    }
 
     public TicketDto() {
     }

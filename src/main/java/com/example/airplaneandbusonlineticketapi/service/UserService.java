@@ -27,6 +27,7 @@ public class UserService {
             throw new OnlineTicketAppException("User already exists.");
         }
 
+        // User oluşumu
         User user = new User();
         user.setFullName(userDto.getFullName());
         user.setEmail(userDto.getEmail());
@@ -34,8 +35,8 @@ public class UserService {
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setUserType(userDto.getUserType());
 
+        // Kayıt sonrası mail iletimi
         EmailDto emailDto = new EmailDto(userDto.getEmail());
-
         ConfigurationDto configurationDto = new ConfigurationDto();
         configurationDto.setEmailDto(emailDto);
         configurationDto.setConfigurationType(ConfigurationType.EMAIL);

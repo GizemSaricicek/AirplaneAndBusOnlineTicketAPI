@@ -1,6 +1,5 @@
 package com.example.airplaneandbusonlineticketapi.controller;
 
-import com.example.airplaneandbusonlineticketapi.dto.VoyageDto;
 import com.example.airplaneandbusonlineticketapi.model.Voyage;
 import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 import com.example.airplaneandbusonlineticketapi.service.VoyageService;
@@ -21,7 +20,7 @@ public class VoyageController {
     @Autowired
     VoyageService voyageService;
 
-    @GetMapping()
+    @GetMapping
     public List<Voyage> getAllVoyages() {
         return voyageService.getCurrentVoyages();
     }

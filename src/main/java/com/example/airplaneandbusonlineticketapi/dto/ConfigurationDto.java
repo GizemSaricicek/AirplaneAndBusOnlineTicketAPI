@@ -8,16 +8,6 @@ public class ConfigurationDto{
     private TicketDto ticketDto;
     private ConfigurationType configurationType;
 
-//    public ConfigurationDto(EmailDto emailDto, ConfigurationType configurationType) {
-//        this.emailDto = emailDto;
-//        this.configurationType = configurationType;
-//    }
-//    public ConfigurationDto(TicketDto ticketDto, ConfigurationType configurationType) {
-//        this.ticketDto = ticketDto;
-//        this.configurationType = configurationType;
-//
-//    }
-
     public EmailDto getEmailDto() {
         return emailDto;
     }

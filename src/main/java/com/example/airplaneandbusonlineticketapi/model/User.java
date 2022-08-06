@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 @Data
 @Entity
 @Table(name = "users")
@@ -18,13 +19,13 @@ public class User {
     private String fullName;
     @Column
     private String password;
-    @Column(name="user_type")
-    @Enumerated(EnumType.STRING)
-    private UserType userType;
     @Column
     private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name = "user_type")
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", insertable = true)
