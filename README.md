@@ -59,7 +59,7 @@ Sabitler:
     
 ### Projede Kullanılan Uygulamaların Port Değerleri ve Veritabanı - RabbitMQ Bağlantı Bilgileri
 
-• Admin Service Port: 4043
+• Admin Service Port: 4043  
 • Ticket Payment Port: 4042  
 • Configuration Service Port: 4041  
 • Airplane And Bus Online Ticket API port: 4040  
