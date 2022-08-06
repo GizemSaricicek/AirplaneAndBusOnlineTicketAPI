@@ -5,7 +5,7 @@
 • Online uçak ve otobüs bilet satış uygulaması için gerekli API’ler yazılmıştır. 
 Buna ek olarak admin üzerinden yolculuk seferlerinin sisteme girilmesi ve silinmesi için de gerekli 
 API’ler yazılmıştır.  
-• Proje SpringBoot ile geliştirilmiştir. Veri tabanı olarak Postgresql kullanılmıştır. Servisler için unit test yazılmıştır.
+• Proje SpringBoot ile geliştirilmiştir. Veri tabanı olarak Postgresql kullanılmıştır. Servis katmanları için unit test yazılmıştır.
 Ödeme, admin ve configuration için ana sistemden ayrı servisler bulunmaktadır. Asenkron iletişimi simgelemek adına RabbitMq'dan yararlanılmıştır. Senkron iletişim için ise Feign Kütüphanesi kullanılmıştır.
 
 ### Sistem Gereksinimleri
@@ -59,16 +59,16 @@ Sabitler:
     
 ### Projede Kullanılan Uygulamaların Port Değerleri ve Veritabanı - RabbitMQ Bağlantı Bilgileri
 
-• Admin Service Port:  
-• Ticket Payment Port:  
-• Configuration Service Port:  
+• Admin Service Port: 4043
+• Ticket Payment Port: 4042  
+• Configuration Service Port: 4041  
 • Airplane And Bus Online Ticket API port: 4040  
   
-  • RabbitMq port:  
+  • RabbitMq port: 49154  
   • RabbitMq user: guest  
   • RabbitMq password: guest  
   
-  • Postgresql port:  
+  • Postgresql port: 49155   
   • Postgresql user: postgres  
   • Postgresql password: postgrespw  
 
