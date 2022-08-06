@@ -64,18 +64,15 @@ Sabitler:
 • Configuration Service Port: 4041  
 • Airplane And Bus Online Ticket API port: 4040  
   
-  • RabbitMq port: 49154  
   • RabbitMq user: guest  
   • RabbitMq password: guest  
   
-  • Postgresql port: 49155   
   • Postgresql user: postgres  
-  • Postgresql password: postgrespw  
-    
-   • Admin Service'in kullandığı DB: online_ticket_service  
-   • Ticket Payment Service'in kullandığı DB: ticket_payment  
-   • Configuration Service'in kullandığı DB: ticket_config  
-   • Airplane And Bus Online Ticket API'ın kullandığı DB: online_ticket_service  
+  • Postgresql password: postgrespw    
+  • Admin Service'in kullandığı DB: online_ticket_service  
+  • Ticket Payment Service'in kullandığı DB: ticket_payment  
+  • Configuration Service'in kullandığı DB: ticket_config  
+  • Airplane And Bus Online Ticket API'ın kullandığı DB: online_ticket_service  
 
 ### Postman Kullanımı İçin Bilgiler
 
