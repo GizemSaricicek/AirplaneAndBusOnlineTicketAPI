@@ -43,44 +43,45 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
 ### Projede kullanılan Enum Değerler ve Sabit Değerler
 
 **Enum:**  
-• ConfigurationType: EMAIL, MESSAGE -> Bilgilendirmenin email mi mesaj mı olduğunu belirtmek için.  
-• CurrencyType: TL, USD, EUR -> Ödeme şeklinin belirlenmesi için.  
-• GenderType: FEMALE, MALE -> Kullanıcıların ve yolcuların cinsiyetlerinin belirlenmesi için.  
-• PaymentType: CREDIT_CARD, EFT_TRANSFER -> Bilet ödeme şeklinin belirlenmesi için.  
-• UserType: INDIVIDUAL, CORPORATE -> Kullanıcı tipinin bireysel mi kurumsal mı olduğunu belirtmek için.  
-• VehicleType: AIRPLANE, BUS -> Seyehatin hangi tür araç ile yapılacağını belirtmek için.  
+• ConfigurationType: EMAIL, MESSAGE **->** Bilgilendirmenin email mi mesaj mı olduğunu belirtmek için.  
+• CurrencyType: TL, USD, EUR **->** Ödeme şeklinin belirlenmesi için.  
+• GenderType: FEMALE, MALE **->** Kullanıcıların ve yolcuların cinsiyetlerinin belirlenmesi için.  
+• PaymentType: CREDIT_CARD, EFT_TRANSFER **->** Bilet ödeme şeklinin belirlenmesi için.  
+• UserType: INDIVIDUAL, CORPORATE **->** Kullanıcı tipinin bireysel mi kurumsal mı olduğunu belirtmek için.  
+• VehicleType: AIRPLANE, BUS **->** Seyehatin hangi tür araç ile yapılacağını belirtmek için.  
   
 **Sabitler:**  
-• MAX_INDIVIDUAL_TICKET = 5 -> Bir bireysel kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
-• MAX_CORPORATE_TICKET = 20 -> Bir kurumsal kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
-• MAX_AIRPLANE_PASSENGER = 189 -> Bir uçağın alabileceği maksimum yolcu sayısı.  
-• MAX_BUS_PASSENGER = 45 -> Bir otobüsün alabileceği maksimum yolcu sayısı.  
-• MAX_MALE_PASSENGER = 2 -> Bir bireysel kullanıcının tek bir siparişte bilet alabileceği maksimum erkek yolcu sayısı.  
+• MAX_INDIVIDUAL_TICKET = 5 **->** Bir bireysel kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
+• MAX_CORPORATE_TICKET = 20 **->** Bir kurumsal kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
+• MAX_AIRPLANE_PASSENGER = 189 **->** Bir uçağın alabileceği maksimum yolcu sayısı.  
+• MAX_BUS_PASSENGER = 45 **->** Bir otobüsün alabileceği maksimum yolcu sayısı.  
+• MAX_MALE_PASSENGER = 2 **->** Bir bireysel kullanıcının tek bir siparişte bilet alabileceği maksimum erkek yolcu sayısı.  
   
     
 ### Projede Kullanılan Uygulamaların Port Değerleri ve Veritabanı - RabbitMQ Bağlantı Bilgileri
 
-• Admin Service Port: 4043  
-• Ticket Payment Port: 4042  
-• Configuration Service Port: 4041  
-• Airplane And Bus Online Ticket API port: 4040  
+• Admin Service Port: **4043**  
+• Ticket Payment Port: **4042**  
+• Configuration Service Port: **4041**  
+• Airplane And Bus Online Ticket API port: **4040**  
   
-  • RabbitMq user: guest  
-  • RabbitMq password: guest  
+  • RabbitMq user: **guest**  
+  • RabbitMq password: **guest**  
   
-  • Postgresql user: postgres  
-  • Postgresql password: postgrespw  
+  • Postgresql user: **postgres**  
+  • Postgresql password: **postgrespw**  
     
-  • Admin Service'in kullandığı DB: online_ticket_service  
-  • Ticket Payment Service'in kullandığı DB: ticket_payment  
-  • Configuration Service'in kullandığı DB: ticket_config  
-  • Airplane And Bus Online Ticket API'ın kullandığı DB: online_ticket_service  
+  • Admin Service'in kullandığı DB: **online_ticket_service**  
+  • Ticket Payment Service'in kullandığı DB: **ticket_payment**  
+  • Configuration Service'in kullandığı DB: **ticket_config**  
+  • Airplane And Bus Online Ticket API'ın kullandığı DB: **online_ticket_service**  
 
 ### Postman Kullanımı İçin Bilgiler
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/16339239-e8b6a515-fd98-48d3-9400-98856844e8d8?action=collection%2Ffork&collection-url=entityId%3D16339239-e8b6a515-fd98-48d3-9400-98856844e8d8%26entityType%3Dcollection%26workspaceId%3D26d636c6-2fb3-4672-9cfc-e07036d55d1f)  
   
   **Airplane and bus ticket api**  
+    
   • create new user = (POST) http://localhost:4040/users
     
   **Admin service**  
