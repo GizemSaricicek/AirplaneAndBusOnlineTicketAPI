@@ -79,4 +79,26 @@ Sabitler:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/16339239-e8b6a515-fd98-48d3-9400-98856844e8d8?action=collection%2Ffork&collection-url=entityId%3D16339239-e8b6a515-fd98-48d3-9400-98856844e8d8%26entityType%3Dcollection%26workspaceId%3D26d636c6-2fb3-4672-9cfc-e07036d55d1f)  
   
+  Airplane and bus ticket api  
+  • create new user = (POST) http://localhost:4040/users
+    
+  Admin service
+  • create new admin = (POST) http://localhost:4043/admins
+  body: {
+    "name": "gizem",
+    "surname":"sarıçiçek",
+    "email":"gizemS@gmail.com",
+    "password":"gizempw"
+  }  
+  • login admin = (GET) http://localhost:4043/admins/login  
+  body: {
+    "email":"admin@gmail.com",
+    "password":"adminpw"
+  }  
+  • get total amount of all tickets = (GET) http://localhost:4043/tickets/totalAmount  
+  • get total amount of all tickets by currency type = (GET) http://localhost:4040/tickets/totalAmount/EUR ??  
+  • get number of sold tickets = (GET) http://localhost:4040/tickets/soldTicket ??  
+
+
+  
   Not: Sistemin örnek çıktıları "Örnek Çıktı Dosyası" adli pdf'te de bulunmaktadır.
