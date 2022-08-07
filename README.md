@@ -103,7 +103,7 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
     
   • get voyage by country = (GET) http://localhost:4040/voyages/country/{countryName}  
     
-  • get voyage by vehicle type = (GET) http://localhost:4040/voyages/vehicle/{vegicleType}  
+  • get voyage by vehicle type = (GET) http://localhost:4040/voyages/vehicle/{vehicleType}  
     
   • get voyage by date = (GET) http://localhost:4040/voyages/date/date?={date}  
     
@@ -114,7 +114,7 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
         "paymentType": "EFT_TRANSFER",  
         "name": "name",  
         "surname": "surname",  
-        "email": "email@fdf",  
+        "email": "email@gmail.com",  
         "phoneNumber": "4445556767",  
         "gender": "MALE",  
         "age": 43  
@@ -146,7 +146,7 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
   body: {  
     "country": "muğla",  
     "departure":"ankara",  
-    "voyageDate":"2019-11-09T11:44:44.797",  
+    "voyageDate":"2022-11-09T11:44:44.797",  
     "amount":100.0,  
     "type":"AIRPLANE",  
     "currencyType":"TL"  
