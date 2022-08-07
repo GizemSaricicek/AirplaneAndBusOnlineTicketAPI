@@ -123,7 +123,7 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
     }  
   ]  
     
-  • get ticket by user Id = (GET) http://localhost:4040/tickets/{userId}
+  • get ticket by user Id = (GET) http://localhost:4040/tickets/{userId}  
 
   **Admin service**  
     
