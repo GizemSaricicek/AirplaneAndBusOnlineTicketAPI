@@ -107,13 +107,13 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
     "password":"gizemS"  
   }  
     
-  • get all voyages = (GET) http://localhost:4040/voyages???  
+  • get all voyages = (GET) http://localhost:4040/voyages  
     
   • get voyage by country = (GET) http://localhost:4040/voyages/country/{countryName}  
     
   • get voyage by vehicle type = (GET) http://localhost:4040/voyages/vehicle/{vehicleType}  
     
-  • get voyage by date = (GET) http://localhost:4040/voyages/date/date?={date}  
+  • get voyage by date = (GET) http://localhost:4040/voyages/date/{date}  
     
   • buy ticket(s) = (POST) http://localhost:4040/tickets/{userId}/{voyageId}  
     
