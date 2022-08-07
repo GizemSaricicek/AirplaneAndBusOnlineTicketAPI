@@ -82,7 +82,7 @@ Sabitler:
   Airplane and bus ticket api  
   • create new user = (POST) http://localhost:4040/users
     
-  Admin service  
+  <style>Admin service{color:Blue}</style>  
   • create new admin = (POST) http://localhost:4043/admins  
   body: {  
     "name": "gizem",  
