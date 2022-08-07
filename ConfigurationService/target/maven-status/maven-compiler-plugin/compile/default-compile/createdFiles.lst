@@ -1,0 +1,6 @@
+com\example\airplaneandbusonlineticketapi\configurationservice\model\Email.class
+com\example\airplaneandbusonlineticketapi\configurationservice\listener\EmailListener.class
+com\example\airplaneandbusonlineticketapi\configurationservice\ConfigurationServiceApplication.class
+com\example\airplaneandbusonlineticketapi\configurationservice\repository\EmailRepository.class
+com\example\airplaneandbusonlineticketapi\configurationservice\config\RabbitMqListenerConfig.class
+com\example\airplaneandbusonlineticketapi\configurationservice\service\EmailService.class

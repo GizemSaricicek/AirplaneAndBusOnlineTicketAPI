@@ -1,0 +1,6 @@
+C:\Users\USER\Documents\GitHub\ConfigurationService\src\main\java\com\example\airplaneandbusonlineticketapi\configurationservice\ConfigurationServiceApplication.java
+C:\Users\USER\Documents\GitHub\ConfigurationService\src\main\java\com\example\airplaneandbusonlineticketapi\configurationservice\repository\EmailRepository.java
+C:\Users\USER\Documents\GitHub\ConfigurationService\src\main\java\com\example\airplaneandbusonlineticketapi\configurationservice\config\RabbitMqListenerConfig.java
+C:\Users\USER\Documents\GitHub\ConfigurationService\src\main\java\com\example\airplaneandbusonlineticketapi\configurationservice\listener\EmailListener.java
+C:\Users\USER\Documents\GitHub\ConfigurationService\src\main\java\com\example\airplaneandbusonlineticketapi\configurationservice\service\EmailService.java
+C:\Users\USER\Documents\GitHub\ConfigurationService\src\main\java\com\example\airplaneandbusonlineticketapi\configurationservice\model\Email.java
