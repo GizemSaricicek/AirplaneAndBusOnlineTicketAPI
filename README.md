@@ -164,4 +164,4 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
     
   • get all tickets = (GET) = http://localhost:4043/tickets  
       
-  Not: Sistemin örnek çıktıları "Postman örnek çıktılar" adlı pdf'te de bulunmaktadır.
+  Not: Sistemin örnek çıktıları "Postman örnek çıktılar" adlı pdf'te de bulunmaktadır.  
