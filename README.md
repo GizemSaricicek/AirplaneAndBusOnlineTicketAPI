@@ -19,7 +19,7 @@ API’ler yazılmıştır.
 • Kurumsal kullanıcı aynı sefer için en fazla 20 bilet alabilir.  
 • Bireysel kullanıcı tek bir siparişte en fazla 2 erkek yolcu için bilet alabilir.  
 • Satın alma işlemi başarılı ise işlem tamamlanmalı ve asenkron olarak bilet detayları kullanıcının telefona numarasına mesaj gönderilmelidir.  
-• Mesaj ve mail gönderme işlemleri için sadece Database kayıt etme işlemi yapması yeterlidir. Fakat bu işlemler tek bir Servis(uygulama)   
+• Mesaj ve mail gönderme işlemleri için sadece Database kayıt etme işlemi yapması yeterlidir. Fakat bu işlemler tek bir Servis(uygulama)
 üzerinden ve polimorfik davranış ile yapılmalıdır.  
 • Kullancılar aldığı biletleri görebilmelidir.
   
