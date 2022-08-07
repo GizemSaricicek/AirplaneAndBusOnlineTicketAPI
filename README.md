@@ -43,7 +43,7 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
 ### Projede kullanılan Enum Değerler ve Sabit Değerler
 
 **Enum:**  
-• ConfigurationType: EMAIL, MESSAGE &larr Bilgilendirmenin email mi mesaj mı olduğunu belirtmek için.  
+• ConfigurationType: EMAIL, MESSAGE &#8594 Bilgilendirmenin email mi mesaj mı olduğunu belirtmek için.  
 • CurrencyType: TL, USD, EUR &larr Ödeme şeklinin belirlenmesi için.  
 • GenderType: FEMALE, MALE &larr Kullanıcıların ve yolcuların cinsiyetlerinin belirlenmesi için.  
 • PaymentType: CREDIT_CARD, EFT_TRANSFER &larr Bilet ödeme şeklinin belirlenmesi için.  
