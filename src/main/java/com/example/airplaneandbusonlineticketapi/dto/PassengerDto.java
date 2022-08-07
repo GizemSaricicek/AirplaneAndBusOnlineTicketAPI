@@ -3,7 +3,6 @@ package com.example.airplaneandbusonlineticketapi.dto;
 import com.example.airplaneandbusonlineticketapi.model.User;
 import com.example.airplaneandbusonlineticketapi.model.enums.GenderType;
 
-import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
@@ -20,16 +19,6 @@ public class PassengerDto {
     private User user;
 
     public PassengerDto() {
-    }
-
-    public PassengerDto(String name, String surname, String email, String phoneNumber, GenderType gender, Integer age, Integer voyageId) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
-        this.age = age;
-        this.voyageId = voyageId;
     }
 
     public String getName() {

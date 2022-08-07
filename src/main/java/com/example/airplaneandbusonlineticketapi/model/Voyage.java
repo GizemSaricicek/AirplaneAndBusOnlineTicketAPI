@@ -65,50 +65,11 @@ public class Voyage {
         this.type = type;
     }
 
-    //    public void setCurrencyType(CurrencyType currencyType) {
-//        this.currencyType = currencyType;
-//    }
     public Voyage(String country, LocalDateTime voyageDate, VehicleType type, Double amount) {
         this.country = country;
         this.voyageDate = voyageDate;
         this.type = type;
         this.amount = amount;
     }
-//    public boolean isStatus() {
-//        return status;
-//    }
-//
-//    public void setStatus(boolean status) {
-//        this.status = status;
-//    }
-//    public void setAmount(Double amount) {
-//        this.amount = amount;
-//    }
-//    public void setType(VehicleType type) {
-//        this.type = type;
-//    }
-//
-//    public Voyage(Integer id, String country, LocalDateTime voyageDate, VehicleType type, Double amount, CurrencyType currencyType) {
-//        this.id = id;
-//        this.country = country;
-//        this.voyageDate = voyageDate;
-//        this.type = type;
-//        this.amount = amount;
-//        this.currencyType = currencyType;
-//    }
-//    public void setCountry(String country) {
-//        this.country = country;
-//    }
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
-//
-//    public LocalDateTime getVoyageDate() {
-//        return voyageDate;
-//    }
-//
-//    public void setVoyageDate(LocalDateTime voyageDate) {
-//        this.voyageDate = voyageDate;
-//    }
 
 }

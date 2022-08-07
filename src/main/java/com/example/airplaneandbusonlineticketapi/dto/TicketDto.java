@@ -1,8 +1,8 @@
 package com.example.airplaneandbusonlineticketapi.dto;
 
+import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
 import com.example.airplaneandbusonlineticketapi.model.enums.GenderType;
 import com.example.airplaneandbusonlineticketapi.model.enums.PaymentType;
-import com.example.airplaneandbusonlineticketapi.model.enums.CurrencyType;
 import com.example.airplaneandbusonlineticketapi.model.enums.VehicleType;
 
 import javax.persistence.EnumType;
@@ -23,8 +23,7 @@ public class TicketDto {
     private Integer age;
     @Enumerated(EnumType.STRING)
     private CurrencyType currencyType;
-//    private String country;
-//    private String departure;
+
     @Enumerated(EnumType.STRING)
     private VehicleType vehicleType;
 
@@ -144,22 +143,6 @@ public class TicketDto {
     public void setAge(Integer age) {
         this.age = age;
     }
-
-//    public String getCountry() {
-//        return country;
-//    }
-//
-//    public void setCountry(String country) {
-//        this.country = country;
-//    }
-//
-//    public String getDeparture() {
-//        return departure;
-//    }
-//
-//    public void setDeparture(String departure) {
-//        this.departure = departure;
-//    }
 
     public TicketDto() {
     }

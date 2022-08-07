@@ -18,7 +18,7 @@ import java.util.List;
 public class VoyageController {
 
     @Autowired
-    VoyageService voyageService;
+    private VoyageService voyageService;
 
     @GetMapping
     public List<Voyage> getAllVoyages() {

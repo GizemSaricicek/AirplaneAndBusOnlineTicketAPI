@@ -12,7 +12,7 @@ import java.util.List;
 public class TicketController {
 
     @Autowired
-    TicketService ticketService;
+    private TicketService ticketService;
 
     @PostMapping("/{userId}/{voyageId}")
     public List<TicketDto> createTickets(@PathVariable Integer userId, @PathVariable Integer voyageId, @RequestBody List<TicketDto> ticketDtos) {

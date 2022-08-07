@@ -46,9 +46,13 @@ public class TicketService {
 
     public List<TicketDto> getTicketsByUserId(Integer userId) {
 
-        User foundUser = userRepository.findById(userId).orElseThrow(() -> new OnlineTicketAppException("User not found."));
+        userRepository.findById(userId).orElseThrow(() -> new OnlineTicketAppException("User not found."));
+        List<TicketDto> ticketDtoList = paymentClient.getTicketsByUserId(userId);
 
-        return paymentClient.getTicketsByUserId(userId);
+        if (ticketDtoList.isEmpty()) {
+            throw new OnlineTicketAppException("There is no ticket for this user.");
+        }
+        return ticketDtoList;
 
 
     }
@@ -56,7 +60,7 @@ public class TicketService {
     public List<TicketDto> getAllTickets() {
         List<TicketDto> tickets = paymentClient.getAllTickets();
 
-        if(tickets.isEmpty()){
+        if (tickets.isEmpty()) {
             throw new OnlineTicketAppException("There is no ticket on the system.");
         }
         return tickets;
@@ -104,30 +108,27 @@ public class TicketService {
         // Ödeme alınması
         List<TicketDto> ticketPayments = paymentClient.createPayments(userId, voyageId, foundVoyage.getCurrencyType(), foundVoyage.getAmount(), foundVoyage.getType(), ticketDtos);
 
-        // Passenger oluşumu
-        PassengerDto passengerDto = new PassengerDto();
-
-        for (int k = 0; k < ticketPayments.size(); k++) {
-            passengerDto.setName(ticketPayments.get(k).getName());
-            passengerDto.setSurname(ticketPayments.get(k).getSurname());
-            passengerDto.setEmail(ticketPayments.get(k).getEmail());
-            passengerDto.setPhoneNumber(ticketPayments.get(k).getPhoneNumber());
-            passengerDto.setAge(ticketPayments.get(k).getAge());
-            passengerDto.setVoyageId(foundVoyage.getId());
-            passengerDto.setGender(ticketPayments.get(k).getGender());
-            passengerService.createPassenger(foundUser, passengerDto);
-        }
-
         for (int i = 0; i < ticketPayments.size(); i++) {
+
+            // Passenger oluşturulması
+            PassengerDto passengerDto = new PassengerDto();
+            passengerDto.setName(ticketPayments.get(i).getName());
+            passengerDto.setSurname(ticketPayments.get(i).getSurname());
+            passengerDto.setEmail(ticketPayments.get(i).getEmail());
+            passengerDto.setPhoneNumber(ticketPayments.get(i).getPhoneNumber());
+            passengerDto.setAge(ticketPayments.get(i).getAge());
+            passengerDto.setVoyageId(foundVoyage.getId());
+            passengerDto.setGender(ticketPayments.get(i).getGender());
+            passengerService.createPassenger(foundUser, passengerDto);
+
             // Mesaj iletimi ve mesaj iletimi için configurationDto oluşturulması
             ConfigurationDto configurationDto = new ConfigurationDto();
             ticketPayments.get(i).setCurrencyType(foundVoyage.getCurrencyType());
-//            ticketPayments.get(i).setCountry(foundVoyage.getCountry());
-//            ticketPayments.get(i).setDeparture(foundVoyage.getDeparture());
+
             configurationDto.setTicketDto(ticketPayments.get(i));
             configurationDto.setConfigurationType(ConfigurationType.MESSAGE);
             rabbitMqService.sendConfiguration(configurationDto);
-//            log.info(ticketPayments.get(i).getDeparture());
+            log.info(ticketPayments.get(i).toString());
         }
 
         return ticketPayments;

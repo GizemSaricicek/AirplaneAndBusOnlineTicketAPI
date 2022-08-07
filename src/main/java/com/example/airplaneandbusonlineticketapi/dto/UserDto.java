@@ -1,7 +1,6 @@
 package com.example.airplaneandbusonlineticketapi.dto;
 
 import com.example.airplaneandbusonlineticketapi.model.enums.UserType;
-import lombok.Data;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;

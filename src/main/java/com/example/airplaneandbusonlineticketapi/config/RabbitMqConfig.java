@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class RabbitMqConfig {
 
-    @Value("${rabbitmq.queue}") //proporties dosyasından alıyor.
+    @Value("${rabbitmq.queue}") //properties dosyasından alıyor.
     private String queueName;
 
     @Value("${rabbitmq.exchange}")

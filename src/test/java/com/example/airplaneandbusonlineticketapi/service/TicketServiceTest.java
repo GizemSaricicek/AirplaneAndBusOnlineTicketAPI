@@ -273,6 +273,19 @@ public class TicketServiceTest {
         assertThat(exception.getMessage()).isEqualTo(expectedException.getMessage());
     }
 
+    @Test
+    @DisplayName("It should throw OnlineTicketAppException when ticket not found.")
+    void it_should_throw_OnlineTicketAppException_when_ticket_not_found() {
+
+        OnlineTicketAppException expectedException = new OnlineTicketAppException("there is no ticket for this user.");
+
+        Mockito.when(paymentClient.getTicketsByUserId(Mockito.anyInt())).thenThrow(expectedException);
+
+        Throwable exception = catchThrowable(() -> paymentClient.getTicketsByUserId(Mockito.anyInt()));
+
+        assertThat(exception).isInstanceOf(OnlineTicketAppException.class);
+        assertThat(exception.getMessage()).isEqualTo(expectedException.getMessage());
+    }
 
     @Test
     @DisplayName("It should create ticket.")

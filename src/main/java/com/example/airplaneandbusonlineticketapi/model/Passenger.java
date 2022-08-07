@@ -39,6 +39,21 @@ public class Passenger {
 
     }
 
+    public Passenger(Integer id, String name, String surname, String email, String phoneNumber, Integer age, Integer voyageId, GenderType gender, User user) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+        this.voyageId = voyageId;
+        this.gender = gender;
+        this.user = user;
+    }
+
+    public Passenger() {
+    }
+
     public String getName() {
         return name;
     }
@@ -57,9 +72,6 @@ public class Passenger {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Passenger() {
     }
 
     public void setSurname(String surname) {
@@ -85,39 +97,5 @@ public class Passenger {
     public void setAge(Integer age) {
         this.age = age;
     }
-
-    public Passenger(Integer id, String name, String surname, String email, String phoneNumber, Integer age, Integer voyageId, GenderType gender, User user) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.age = age;
-        this.voyageId = voyageId;
-        this.gender = gender;
-        this.user = user;
-    }
-
-    //    public Integer getVoyageId() {
-//        return voyageId;
-//    }
-//    public Integer getId() {
-//        return id;
-//    }
-//    public Integer getAge() {
-//        return age;
-//    }
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
-//    public GenderType getGender() {
-//        return gender;
-//    }
-//    public String getPhoneNumber() {
-//        return phoneNumber;
-//    }
-//    public String getSurname() {
-//        return surname;
-//    }
 
 }

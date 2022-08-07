@@ -13,10 +13,10 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(OnlineTicketAppException.class)
-    public ResponseEntity<ExceptionResponse> handleOnlineTicketAppException(OnlineTicketAppException onlineTicketAppException){
+    public ResponseEntity<ExceptionResponse> handleOnlineTicketAppException(OnlineTicketAppException onlineTicketAppException) {
 
         ExceptionResponse exceptionResponse = new ExceptionResponse(onlineTicketAppException.getMessage(), LocalDateTime.now());
-        log.info("OnlineTicketAppException occurred:: response:{}",exceptionResponse.toString());
+        log.info("OnlineTicketAppException occurred:: response:{}", exceptionResponse.toString());
 
         return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
 
