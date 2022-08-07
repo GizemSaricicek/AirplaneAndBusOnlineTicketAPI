@@ -37,13 +37,7 @@ API’ler yazılmıştır.
 
 ### Sistem Modelleri
   
-![image](https://user-images.githubusercontent.com/97917750/183285101-142b43fe-0ca4-474c-85d5-e8480627cf4d.png)
-  
 ![image](https://user-images.githubusercontent.com/97917750/183285384-40afefca-0e52-4b36-97b4-2f3e2e086f10.png)
-  
-![image](https://user-images.githubusercontent.com/97917750/183285419-c82cf568-3548-42a8-9c00-f90dcc5b8695.png)
-
-![image](https://user-images.githubusercontent.com/97917750/183285448-f19f0ead-1b29-4086-b784-ae1cf7a4264c.png)
   
 Not: Voyage modelinde status sütunu sistemden silinip silinmediğini göstermektedir.  
 Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.  
