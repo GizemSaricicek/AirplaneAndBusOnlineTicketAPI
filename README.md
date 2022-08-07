@@ -42,7 +42,7 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
 
 ### Projede kullanılan Enum Değerler ve Sabit Değerler
 
-Enum:  
+**Enum:**  
 • ConfigurationType: EMAIL, MESSAGE -> Bilgilendirmenin email mi mesaj mı olduğunu belirtmek için.  
 • CurrencyType: TL, USD, EUR -> Ödeme şeklinin belirlenmesi için.  
 • GenderType: FEMALE, MALE -> Kullanıcıların ve yolcuların cinsiyetlerinin belirlenmesi için.  
@@ -50,7 +50,7 @@ Enum:
 • UserType: INDIVIDUAL, CORPORATE -> Kullanıcı tipinin bireysel mi kurumsal mı olduğunu belirtmek için.  
 • VehicleType: AIRPLANE, BUS -> Seyehatin hangi tür araç ile yapılacağını belirtmek için.  
   
-Sabitler:  
+**Sabitler:**  
 • MAX_INDIVIDUAL_TICKET = 5 -> Bir bireysel kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
 • MAX_CORPORATE_TICKET = 20 -> Bir kurumsal kullanıcının bir seyehat için alabileceği maksimum bilet sayısı.  
 • MAX_AIRPLANE_PASSENGER = 189 -> Bir uçağın alabileceği maksimum yolcu sayısı.  
@@ -80,23 +80,29 @@ Sabitler:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/16339239-e8b6a515-fd98-48d3-9400-98856844e8d8?action=collection%2Ffork&collection-url=entityId%3D16339239-e8b6a515-fd98-48d3-9400-98856844e8d8%26entityType%3Dcollection%26workspaceId%3D26d636c6-2fb3-4672-9cfc-e07036d55d1f)  
   
-  Airplane and bus ticket api  
+  **Airplane and bus ticket api**  
   • create new user = (POST) http://localhost:4040/users
     
-  '''diff Admin service'''
+  **Admin service**  
+    
   • create new admin = (POST) http://localhost:4043/admins  
+    
   body: {  
     "name": "gizem",  
     "surname":"sarıçiçek",  
     "email":"gizemS@gmail.com",  
     "password":"gizempw"  
   }  
+    
   • login admin = (GET) http://localhost:4043/admins/login  
+    
   body: {  
     "email":"admin@gmail.com",  
     "password":"adminpw"  
   }  
+  
   • add new voyage = (POST) =  http://localhost:4043/voyages/{adminId}/create  
+    
   body: {  
     "country": "muğla",  
     "departure":"ankara",  
@@ -104,13 +110,16 @@ Sabitler:
     "amount":100.0,  
     "type":"AIRPLANE",  
     "currencyType":"TL"  
-   }  
+   }
+     
   • get total amount of all tickets = (GET) http://localhost:4043/tickets/totalAmount  
+    
   • get total amount of all tickets by currency type = (GET) http://localhost:4043/tickets/totalAmount/EUR  
+    
   • get number of sold tickets = (GET) http://localhost:4043/tickets/soldTicket  
+    
   • delete voyage = (PUT) = http://localhost:4043/voyages/{adminId}/delete/{voyageId}  
+    
   • get all tickets = (GET) = http://localhost:4043/tickets  
-
-
-  
+      
   Not: Sistemin örnek çıktıları "Örnek Çıktı Dosyası" adli pdf'te de bulunmaktadır.
