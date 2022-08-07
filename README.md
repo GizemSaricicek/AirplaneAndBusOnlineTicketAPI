@@ -156,7 +156,7 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
      
   • get total amount of all tickets = (GET) http://localhost:4043/tickets/totalAmount  
     
-  • get total amount of all tickets by currency type = (GET) http://localhost:4043/tickets/totalAmount/EUR  
+  • get total amount of all tickets by currency type = (GET) http://localhost:4043/tickets/totalAmount/{currencyType}  
     
   • get number of sold tickets = (GET) http://localhost:4043/tickets/soldTicket  
     
