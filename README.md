@@ -83,21 +83,32 @@ Sabitler:
   • create new user = (POST) http://localhost:4040/users
     
   Admin service
-  • create new admin = (POST) http://localhost:4043/admins
-  body: {
-    "name": "gizem",
-    "surname":"sarıçiçek",
-    "email":"gizemS@gmail.com",
-    "password":"gizempw"
+  • create new admin = (POST) http://localhost:4043/admins  
+  body: {  
+    "name": "gizem",  
+    "surname":"sarıçiçek",  
+    "email":"gizemS@gmail.com",  
+    "password":"gizempw"  
   }  
   • login admin = (GET) http://localhost:4043/admins/login  
-  body: {
-    "email":"admin@gmail.com",
-    "password":"adminpw"
+  body: {  
+    "email":"admin@gmail.com",  
+    "password":"adminpw"  
   }  
+  • add new voyage = (POST) =  http://localhost:4043/voyages/{adminId}/create  
+  body: {  
+    "country": "muğla",  
+    "departure":"ankara",  
+    "voyageDate":"2019-11-09T11:44:44.797",  
+    "amount":100.0,  
+    "type":"AIRPLANE",  
+    "currencyType":"TL"  
+   }  
   • get total amount of all tickets = (GET) http://localhost:4043/tickets/totalAmount  
-  • get total amount of all tickets by currency type = (GET) http://localhost:4040/tickets/totalAmount/EUR ??  
-  • get number of sold tickets = (GET) http://localhost:4040/tickets/soldTicket ??  
+  • get total amount of all tickets by currency type = (GET) http://localhost:4043/tickets/totalAmount/EUR  
+  • get number of sold tickets = (GET) http://localhost:4043/tickets/soldTicket  
+  • delete voyage = (PUT) = http://localhost:4043/voyages/{adminId}/delete/{voyageId}  
+  • get all tickets = (GET) = http://localhost:4043/tickets  
 
 
   
