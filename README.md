@@ -1,3 +1,4 @@
+<style>H3{color:Blue;}</style>
 # Patika.dev - Logo Bootcamp Final Project
 ## AirplaneAndBusOnlineTicketAPI
 
@@ -82,7 +83,7 @@ Sabitler:
   Airplane and bus ticket api  
   • create new user = (POST) http://localhost:4040/users
     
-  <style>Admin service{color:Blue}</style>  
+  Admin service
   • create new admin = (POST) http://localhost:4043/admins  
   body: {  
     "name": "gizem",  
