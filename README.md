@@ -1,7 +1,9 @@
 
 # Patika.dev - Logo Bootcamp Final Project
-## AirplaneAndBusOnlineTicketAPI
-
+## AirplaneAndBusOnlineTicketAPI  
+  
+  Not: Sistemin örnek çıktıları "Postman örnek çıktılar" adlı pdf'te bulunmaktadır.  
+  
 ### Proje Kapsamı ve Açıklaması
 • Online uçak ve otobüs bilet satış uygulaması için gerekli API’ler yazılmıştır. 
 Buna ek olarak admin üzerinden yolculuk seferlerinin sisteme girilmesi ve silinmesi için de gerekli 
@@ -163,5 +165,3 @@ Voyage eklendiğinde status=true, voyage silindiğinde status=false olmaktadır.
   • delete voyage = (PUT) = http://localhost:4043/voyages/{adminId}/delete/{voyageId}  
     
   • get all tickets = (GET) = http://localhost:4043/tickets  
-      
-  Not: Sistemin örnek çıktıları "Postman örnek çıktılar" adlı pdf'te de bulunmaktadır.  
